@@ -11,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $res = safeQuery("SELECT * FROM user WHERE username = ? OR email = ?", array($username, $email));
     if($res->num_rows>0){
-        echo "Username o email già in uso";
+        echo json_encode(array('code'=>array('behave'=>'replace', 'code'=>'Email o username già in uso')));
     } else {
-        safeQuery("INSERT INTO utenti (nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?)", array($name, $surname, $username, $email, $password));
-        header("Location: ../index.php");
+        safeQuery("INSERT INTO user (name, surname, username, email, password) VALUES (?, ?, ?, ?, ?)", array($name, $surname, $username, $email, $password));
+        echo json_encode(array('redirect'=>array('page'=>'../index.html')));
     }
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET"){
             setcookie("username", $username, time() + (86400 * 30), "/");
             setcookie("password", $password, time() + (86400 * 30), "/");
         }
-        echo json_encode(array('redirect'=>array('page'=>'index.html')));
+        echo json_encode(array('redirect'=>array('page'=>'../index.html')));
     }
 }
 
