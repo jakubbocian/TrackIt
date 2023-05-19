@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
+<script src="../ajax.js"></script>
 
 <head>
 
@@ -21,16 +22,16 @@
 <body class="text-center">
 
   <main class="form-signin w-100 m-auto">
-    <form>
+    <form name="login">
      <a href = "../index.html"><img class="mb-4" src="../images/pack.png" alt="" width="72" height="75"></a>
       <h1 class="h3 mb-3 fw-normal">Effettua il login</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
 
@@ -43,7 +44,9 @@
           <input type="checkbox" value="ricordami"> Ricordami
         </label>
       </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="GET('controller.php', 'login', 'res')">Sign in</button>
+      <div id="res">
+      </div>
       <p class="mt-5 mb-3 text-body-secondary">&copy; TrackIT 2017–2023</p>
     </form>
   </main>
