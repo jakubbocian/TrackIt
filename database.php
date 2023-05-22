@@ -67,4 +67,35 @@ function safeQuery($query, $params)
     return $res;
 }
 
+function safeQueryId($query, $params)
+{
+    $conn = OpenCon();
+    $stmt = $conn->prepare($query);
+    $types = "";
+    foreach ($params as $value) {
+        if (gettype($value) == "string")
+            $types .= "s";
+        else if (gettype($value) == "integer")
+            $types .= "i";
+        else if (gettype($value) == "double")
+            $types .= "d";
+        else if (gettype($value) == "blob")
+            $types .= "b";
+    }
+    $values = "...[";
+    foreach ($params as $value) {
+        if(gettype($value) == "string")
+            $values .= "'" . $value . "'";
+        if(next($params))
+            $values .= ", ";
+    }
+    $values .= "]";
+    $stmt->bind_param($types, ...$params);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $id = $conn->insert_id;
+    CloseCon($conn);
+    return ["queryRes" => $res, "lastId" => $id];
+}
+
 ?>
