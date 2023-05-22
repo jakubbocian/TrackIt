@@ -3,7 +3,7 @@
 function OpenCon()
 {
     $dbhost = "localhost";
-    $dbuser = "root";
+    $dbuser = "iismpsnacks";
     $dbpass = "";
     $db = "trackit";
 
