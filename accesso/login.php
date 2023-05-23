@@ -23,7 +23,7 @@
 
   <main class="form-signin w-100 m-auto">
     <form name="login">
-     <a href = "../index.html"><img class="mb-4" src="../images/pack.png" alt="" width="72" height="75"></a>
+      <a href="../index.html"><img class="mb-4" src="../images/pack.png" alt="" width="72" height="75"></a>
       <h1 class="h3 mb-3 fw-normal">Effettua il login</h1>
 
       <div class="form-floating">
@@ -39,12 +39,13 @@
         Non hai un acconunt? <a href="registrazione.php">Registrati qui</a>
       </p>
 
-      <div class="checkbox mb-3">
+      <!--<div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="ricordami"> Ricordami
+          <input type="checkbox" value="1" name="ricordami"> Ricordami
         </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="GET('controller.php', 'login', 'res')">Sign in</button>
+      </div>-->
+      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="GET('controller.php', 'login', 'res')">Sign
+        in</button>
       <div id="res">
       </div>
       <p class="mt-5 mb-3 text-body-secondary">&copy; TrackIT 2017–2023</p>

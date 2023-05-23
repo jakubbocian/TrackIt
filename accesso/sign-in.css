@@ -26,9 +26,9 @@ body {
 .form-signin {
   max-width: 330px;
   padding: 15px;
-  background-color: rgba(200, 200, 200, 0.3); /* Imposta il colore di sfondo con un'opacità del 50% */
-  backdrop-filter: blur(8px);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(200, 200, 200, 0.5); /* Imposta il colore di sfondo con un'opacità del 50% */
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 .form-signin .form-floating:focus-within {
