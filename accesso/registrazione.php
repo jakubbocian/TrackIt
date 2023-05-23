@@ -55,11 +55,12 @@
         Sei già registrato? <a href="login.php">Accedi qui</a>
       </p>
 
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="ricordami"> Ricordami
+      <!--<div class="checkbox mb-3">
+         <label>
+          <input type="checkbox" value="1" name="ricordami"> Ricordami
         </label>
-      </div>
+      </div>-->
+      
       <button class="w-100 btn btn-lg btn-primary" type="button" onclick="POST('controller.php', 'registrazione', 'res')">Sign in</button>
       <div id="res">
       </div>

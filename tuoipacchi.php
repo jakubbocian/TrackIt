@@ -1,7 +1,20 @@
 <!doctype html>
 
 <html lang="en" data-bs-theme="auto">
+
 <head>
+  <?php
+
+  session_start();
+  if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+
+    header('Location: accesso/login.php');
+    exit;
+  }
+
+  $user = $_SESSION["username"];
+
+  ?>
 
   <meta charset="utf-8">
   <title>I tuoi pacchi</title>
@@ -138,7 +151,7 @@
             <a class="nav-link" href="#">Profilo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Esci</a>
+            <a class="nav-link" href="accesso/logout.php">Esci</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
@@ -156,7 +169,7 @@
   <div class="d-flex2 gap-2 justify-content-center py-5">
 
     <p>
-    <h2>Ecco i tuoi pacchi</h2>
+    <h2>I pacchi di <?php echo "$user" ?></h2>
     </p>
 
   </div>
@@ -176,4 +189,5 @@
   </div>
 
 </body>
+
 </html>
