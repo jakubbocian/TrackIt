@@ -1,8 +1,6 @@
 // JavaScript code to show shipment details when clicked
 function initTrackings() {
     const shipmentItems = document.querySelectorAll('.shipment-list li');
-
-    alert(shipmentItems);
     shipmentItems.forEach(item => {
         const shipmentDetails = item.querySelector('.shipment-details');
         let isOpen = false;
