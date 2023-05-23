@@ -22,8 +22,14 @@
   <link rel="stylesheet" href="./index_files/flaticon.css">
 
   <link rel="stylesheet" href="./index_files/aos.css">
+  <link rel="stylesheet" href="./index_files/index_dropdown.css">
 
   <link rel="stylesheet" href="./index_files/style(1).css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+
+
 
   <style type="text/css" id="operaUserStyle"></style>
 </head>
@@ -52,7 +58,19 @@
 
             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
               <li><a href="#inizio" class="nav-link active">Home</a></li>
-              <li><a href = "tracking/trackings.php">Tuoi pacchi</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Pacchi
+                </a>
+                <!-- Dropdown menu -->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <!-- Opzioni del dropdown -->
+                  <a class="dropdown-item" href="tracking/trackings.php">Tuoi pacchi</a>
+                  <a class="dropdown-item" href="tracking/addTracking.php">Nuovo pacco</a>
+                </div>
+              </li>
+
             </ul>
           </nav>
         </div>
@@ -113,11 +131,6 @@
   </div>
 
 
-
-
-
-
-
   <div class="site-section border-bottom" id="section-our-team">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -159,6 +172,11 @@
 
   <script src="./index_files/main.js.trasferimento"></script>
 
+  <script>
+    $(document).ready(function () {
+      $('.dropdown-toggle').dropdown();
+    });
+  </script>
 
 </body>
 
