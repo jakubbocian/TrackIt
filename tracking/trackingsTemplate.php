@@ -10,6 +10,8 @@ function trackings()
     $code = "";
     $ch = curl_init();
     $url = "https://api.goshippo.com/tracks/";
+
+    $code .= "<ul class='shipment-list'>";
     while ($row = $res->fetch_assoc()) {
         $tracking[] = $row;
         $url .= $row["carrier"] . "/" . $row["tracking"];
@@ -39,13 +41,29 @@ function trackings()
         $response = json_decode($response, true);
 
         curl_close($ch);
+
+        $code .= "<li>";
+        $code .= "<h3>" . $row["name"] . "</h3>";
+        $code .= "<div class='shipment-details'>";
+        $code .= "<h2>Shipment Details</h2>";
+        $code .= "<p><span>Carrier:</span> " . $row["carrier"] . "</p>";
+        $code .= "<p><span>Tracking Number:</span> " . $row["tracking"] . "</p>";
+        $code .= "<p><span>Tracking Status:</span> " . $response["tracking_status"]["status_details"] . "</p>";
+        $code .= "<p><span>Tracking Date:</span> " . explode("T",$response["tracking_status"]["status_date"])[0] . "</p>";
+        $code .= "<p><span>Tracking Location:</span> " . $response["tracking_status"]["location"]["city"] . " " . $response["tracking_status"]["location"]["state"] . " " . $response["tracking_status"]["location"]["country"] . "</p>";
+        $code .= "</div>";
+        $code .= "</li>";
+
+        /*
         $code .= "<div class='tracking'>";
         $code .= "<h1>" . $row["name"] . "</h1>";
         $code .= "<h2>" . $row["carrier"] . "</h2>";
         $code .= "<h3>" . $row["tracking"] . "</h3>";
         $code .= "<p>" . $response["tracking_status"]["status_details"] . "</br>" . explode("T",$response["tracking_status"]["status_date"])[0] . "</br>" . $response["tracking_status"]["location"]["city"] . " " . $response["tracking_status"]["location"]["state"] . " " . $response["tracking_status"]["location"]["country"] . "<p>";
         $code .= "</div>";
+        */
     }
+    $code .= "</ul>";
     return $code;
 }
 ?>
