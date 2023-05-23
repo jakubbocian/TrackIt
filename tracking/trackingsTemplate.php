@@ -1,8 +1,10 @@
 <?php
 include_once "../database.php";
+
+session_start();
 function trackings()
 {
-    $userId = 1;
+    $userId = $_SESSION['id'];
     $res = query("SELECT * FROM tracking WHERE id IN (SELECT idTracking FROM tracking_user WHERE idUser = " . $userId . ")");
     $tracking = array();
     $code = "";

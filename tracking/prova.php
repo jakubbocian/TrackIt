@@ -18,6 +18,7 @@
     .shipment-list {
       list-style-type: none;
       padding: 0;
+      color: #FFFFF1;
     }
 
     .shipment-list li {
@@ -39,11 +40,13 @@
       background-color: #f9f9f9;
       border: 1px solid #ccc;
       border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     
     /* Colors */
     .shipment-list li:nth-child(n) {
-      background-color: #ffecd9; /* Light orange */
+      background-color: #F16821; /* Light orange */
     }
 
     .shipment-list li:hover {
@@ -54,25 +57,51 @@
 <body>
   <h1>Saved Shipments</h1>
   <ul class="shipment-list">
-    <li><h3>Shipment 1</h3></li>
-    <li>Shipment 2</li>
-    <li>Shipment 3</li>
-    <li>Shipment 4</li>
+    <li><h3>Shipment 1</h3>
+      <div class="shipment-details">
+        <h2>Shipment Details</h2>
+        <p>Details of Shipment 1 will appear here.</p>
+      </div>
+    </li>
+    <li>Shipment 2
+      <div class="shipment-details">
+        <h2>Shipment Details</h2>
+        <p>Details of Shipment 2 will appear here.</p>
+      </div>
+    </li>
+    <li>Shipment 3
+      <div class="shipment-details">
+        <h2>Shipment Details</h2>
+        <p>Details of Shipment 3 will appear here.</p>
+      </div>
+    </li>
+    <li>Shipment 4
+      <div class="shipment-details">
+        <h2>Shipment Details</h2>
+        <p>Details of Shipment 4 will appear here.</p>
+      </div>
+    </li>
   </ul>
-
-  <div class="shipment-details">
-    <h2>Shipment Details</h2>
-    <p>Details of the selected shipment will appear here.</p>
-  </div>
 
   <script>
     // JavaScript code to show shipment details when clicked
     const shipmentItems = document.querySelectorAll('.shipment-list li');
-    const shipmentDetails = document.querySelector('.shipment-details');
-
+    
     shipmentItems.forEach(item => {
+      const shipmentDetails = item.querySelector('.shipment-details');
+      
       item.addEventListener('click', () => {
+        // Hide all shipment details first
+        shipmentItems.forEach(item => {
+          item.querySelector('.shipment-details').style.display = 'none';
+        });
+
+        // Display the clicked shipment's details with animation
+        shipmentDetails.style.opacity = '0';
         shipmentDetails.style.display = 'block';
+        setTimeout(() => {
+          shipmentDetails.style.opacity = '1';
+        }, 10);
       });
     });
   </script>

@@ -14,14 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(array('code' => array('behave' => 'replace', 'code' => 'Email o username già in uso')));
 
     } else {
-        $res = safeQuery("INSERT INTO user (name, surname, username, email, password) VALUES (?, ?, ?, ?, ?)", array($name, $surname, $username, $email, $password));
+        $res = safeQueryId("INSERT INTO user (name, surname, username, email, password) VALUES (?, ?, ?, ?, ?)", array($name, $surname, $username, $email, $password));
 
-        if (!$mysqli->query($res)) {
+        if (!$mysqli->query($res['queryRes'])) {
             exit();
         } else {
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['logged_in'] = true;
+            $_SESSION['id'] = $res['lastId'];
 
              /*if (isset($_POST['ricordami']) && $_POST['ricordami'] == 1) {
 
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $email = $_GET["email"];
     $password = hash("sha256", $_GET["password"]);
 
-    $res = safeQuery("SELECT username FROM user WHERE email = ?", array($email));
+    $res = safeQuery("SELECT * FROM user WHERE email = ?", array($email));
     if ($res->num_rows == 0) {
         echo json_encode(array('code' => array('behave' => 'replace', 'code' => 'Email o password errati')));
     } else {
@@ -51,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         session_start();
         $_SESSION['username'] = $username;
         $_SESSION['logged_in'] = true;
+        $_SESSION['id'] = $row['idUser'];
 
         /*if (isset($_POST['ricordami']) && $_POST['ricordami'] == 1) {
             setcookie("username", $username, time() + (86400 * 30), "/");
