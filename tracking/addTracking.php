@@ -1,18 +1,8 @@
 <html>
 
 <head>
-
     <?php
-
-    session_start();
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-
-        header('Location: ../accesso/login.php');
-        exit;
-    }
-
-    $user = $_SESSION["username"];
-
+    include_once "../session.php";
     ?>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -73,7 +63,7 @@
                     </div>
                     <div class="col-md-4 col-md-pull-7">
                         <div class="booking-form">
-                            <form name="addTracking">
+                            <form name="addTracking" onsubmit="event.preventDefault();">
                                 <div class="form-group">
                                     <span class="form-label">Dai un nome al tracciamento</span>
                                     <input class="form-control" type="text" placeholder="Che nome vorresti dare?" name="name">
@@ -92,9 +82,9 @@
                                     <input class="form-control" type="text" placeholder="Qual'è il codice del pacco?" name="tracking">
                                 </div>
                                 <div class="form-btn">
-                                    <button class="submit-btn" onclick="POST('controller.php', 'addTracking', 'dummy')">Avvia tracciamento</button>
+                                    <button class="submit-btn" onclick="POST('controller.php', 'addTracking', 'response')">Avvia tracciamento</button>
                                 </div>
-                                <div id="dummy">
+                                <div id="response">
 
                                 </div>
                             </form>

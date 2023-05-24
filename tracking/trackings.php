@@ -1,6 +1,9 @@
 <html>
 
 <head>
+    <?php
+    include_once "../session.php";
+    ?>
     <script src="../ajax.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
