@@ -62,7 +62,7 @@ function GET(url, formname, div) {
     for (var i = 0; i < elements.length; i++) {
         data += elements[i].name + "=" + elements[i].value + "&";
     }
-    xhr.open('GET', url + '?' + data, true);
+    xhr.open('GET', url  + data, true);
     xhr.send();
 }
 
