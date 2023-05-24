@@ -61,7 +61,7 @@
         </label>
       </div>-->
       
-      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="POST('controller.php', 'registrazione', 'res')">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="POST('controller.php?', 'registrazione', 'res')">Sign in</button>
       <div id="res">
       </div>
       <p class="mt-5 mb-3 text-body-secondary">&copy; TrackIT 2017–2023</p>

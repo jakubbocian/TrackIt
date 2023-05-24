@@ -71,6 +71,7 @@
 
               if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
 
+
                 ?>
 
                 <li>
