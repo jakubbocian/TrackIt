@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $res = safeQueryId("INSERT INTO user (name, surname, username, email, password) VALUES (?, ?, ?, ?, ?)", array($name, $surname, $username, $email, $password));
 
-        if (!$mysqli->query($res['queryRes'])) {
+        if (!$res) {
             exit();
         } else {
             session_start();

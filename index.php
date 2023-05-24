@@ -38,7 +38,6 @@
     }
   </style>
 
-
 </head>
 
 
@@ -66,18 +65,35 @@
             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
               <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
 
-              <li>
-                <div class="dropdown">
-                  <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
-                      style="color:aliceblue">Pacchi</a>
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="dropdown-content" id="myDropdown">
-                    <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
-                    <a href="tracking/addTracking.php">Nuovo tracciamento</a>
+
+              <?php
+
+              session_start();
+
+              if (isset($_SESSION['logged_in'])) {
+
+                ?>
+
+                <li>
+                  <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
+                        style="color:aliceblue">Pacchi</a>
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                      <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
+                      <a href="tracking/addTracking.php">Nuovo tracciamento</a>
+                    </div>
                   </div>
-                </div>
-              </li>
+                </li>
+
+                <?php
+
+                echo "<li><a href='accesso/logout.php'>Logout</a></li>";
+
+              }
+              ?>
+
             </ul>
           </nav>
         </div>
@@ -134,7 +150,6 @@
 
     </div>
   </div>
-
 
   <div class="site-section border-bottom" id="section-our-team">
     <div class="container">
