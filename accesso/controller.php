@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             }*/
 
-            echo json_encode(array('redirect' => array('page' => '../index.html')));
+            echo json_encode(array('redirect' => array('page' => '../index.php')));
         }
     }
 }
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             setcookie("password", $password, time() + (86400 * 30), "/");
         }*/
 
-        echo json_encode(array('redirect' => array('page' => '../index.html')));
+        echo json_encode(array('redirect' => array('page' => '../index.php')));
     }
 }
 ?>
