@@ -44,7 +44,7 @@
           <input type="checkbox" value="1" name="ricordami"> Ricordami
         </label>
       </div>-->
-      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="GET('controller.php', 'login', 'res')">Sign
+      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="GET('controller.php?', 'login', 'res')">Sign
         in</button>
       <div id="res">
       </div>

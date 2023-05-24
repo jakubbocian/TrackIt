@@ -42,7 +42,7 @@ function trackings()
         $response = json_decode($response, true);
 
         $history = $response["tracking_history"];
-        $history = array_reverse($history);
+        //$history = array_reverse($history);
 
         curl_close($ch);
         
@@ -52,11 +52,7 @@ function trackings()
         $code .= "<h2>Shipment Details</h2>";
         $code .= "<p><span>Carrier:</span> " . $row["carrier"] . "</p>";
         $code .= "<p><span>Tracking Number:</span> " . $row["tracking"] . "</p>";
-        /*
-        $code .= "<p><span>Tracking Status:</span> " . $response["tracking_status"]["status_details"] . "</p>";
-        $code .= "<p><span>Tracking Date:</span> " . explode("T",$response["tracking_status"]["status_date"])[0] . "</p>";
-        $code .= "<p><span>Tracking Location:</span> " . $response["tracking_status"]["location"]["city"] . " " . $response["tracking_status"]["location"]["state"] . " " . $response["tracking_status"]["location"]["country"] . "</p>";
-        */
+        $code .= "<p><span>Estimated Delivery Date:</span> " . explode("T",$response["eta"])[0] . "</p>";
         $code .= "<table>";
         $code .= "<thead><tr><th>Tracking Status</th><th>Tracking Date</th><th>Tracking Location</th></tr></thead>";
         $code .= "<tbody>";
@@ -85,6 +81,87 @@ function trackings()
         $code .= "</li>";
     }
     $code .= "</ul>";
+    return $code;
+}
+
+function carriers($letters){
+    $carrierNames = array(
+        'airterra' => 'Airterra',
+        'apc_postal' => 'APC Postal',
+        'apg' => 'APG',
+        'aramex' => 'Aramex',
+        'asendia_us' => 'Asendia US',
+        'australia_post' => 'Australia Post',
+        'axlehire' => 'Axlehire',
+        'better_trucks' => 'BetterTrucks',
+        'borderguru' => 'BorderGuru',
+        'boxberry' => 'Boxberry',
+        'bring' => 'Bring',
+        'canada_post' => 'Canada Post',
+        'cdl' => 'CDL',
+        'chronopost' => 'Chronopost',
+        'collect_plus' => 'CollectPlus',
+        'correios_br' => 'CorreiosBR',
+        'correos_espana' => 'Correos España',
+        'couriersplease' => 'Couriers Please',
+        'colissimo' => 'Colissimo',
+        'deutsche_post' => 'Deutsche Post',
+        'dhl_benelux' => 'DHL Benelux',
+        'dhl_ecommerce' => 'DHL eCommerce',
+        'dhl_express' => 'DHL Express',
+        'dhl_germany_c2c' => 'DHL Germany C2C',
+        'dhl_germany' => 'DHL Germany',
+        'dpd_germany' => 'DPD GERMANY',
+        'dpd' => 'DPD',
+        'dpd_uk' => 'DPD UK',
+        'estafeta' => 'Estafeta',
+        'fastway_australia' => 'Aramex',
+        'fedex' => 'FedEx',
+        'globegistics' => 'Globegistics',
+        'gls_us' => 'GLS US',
+        'gophr' => 'Gophr',
+        'gso' => 'GSO',
+        'hermes_germany_b2c' => 'Hermes Germany B2C',
+        'hermes_uk' => 'Evri UK',
+        'hongkong_post' => 'Hongkong Post',
+        'lasership' => 'LaserShip',
+        'lso' => 'LSO',
+        'mondial_relay' => 'Mondial Relay',
+        'new_zealand_post' => 'New Zealand Post',
+        'nippon_express' => 'Nippon Express',
+        'ontrac' => 'OnTrac',
+        'orangeds' => 'OrangeDS',
+        'parcelforce' => 'Parcelforce',
+        'parcel' => 'Parcel',
+        'passport' => 'Passport',
+        'pcf' => 'PCF',
+        'posti' => 'Posti',
+        'purolator' => 'Purolator',
+        'royal_mail' => 'Royal Mail',
+        'rr_donnelley' => 'ePost Global',
+        'russian_post' => 'Russian Post',
+        'sendle' => 'Sendle',
+        'skypostal' => 'SkyPostal',
+        'stuart' => 'Stuart',
+        'swyft' => 'Swyft',
+        'uds' => 'UDS',
+        'ups' => 'UPS',
+        'usps' => 'USPS',
+        'yodel' => 'Yodel'
+    );
+
+    $carrierCode = array_flip($carrierNames);
+    
+
+    //$letters = strtolower($letters);
+
+    $code = "";
+
+    foreach($carrierCode as $key => $value){
+        if(stripos($key, $letters) !== false){
+            $code .= "<option>" . $carrierNames[$value] . "</option>";
+        }
+    }
     return $code;
 }
 ?>
