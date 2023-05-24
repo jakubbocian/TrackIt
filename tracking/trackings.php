@@ -5,11 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         function initTrackings() {
-
-            console.log("initTrackings");
             const shipmentItems = document.querySelectorAll('.shipment-list li');
-
-            console.log(shipmentItems);
             shipmentItems.forEach(item => {
                 const shipmentDetails = item.querySelector('.shipment-details');
                 let isOpen = false;

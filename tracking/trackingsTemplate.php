@@ -41,6 +41,9 @@ function trackings()
 
         $response = json_decode($response, true);
 
+        $history = $response["tracking_history"];
+        $history = array_reverse($history);
+
         curl_close($ch);
         
         $code .= "<li>";
@@ -49,9 +52,35 @@ function trackings()
         $code .= "<h2>Shipment Details</h2>";
         $code .= "<p><span>Carrier:</span> " . $row["carrier"] . "</p>";
         $code .= "<p><span>Tracking Number:</span> " . $row["tracking"] . "</p>";
+        /*
         $code .= "<p><span>Tracking Status:</span> " . $response["tracking_status"]["status_details"] . "</p>";
         $code .= "<p><span>Tracking Date:</span> " . explode("T",$response["tracking_status"]["status_date"])[0] . "</p>";
         $code .= "<p><span>Tracking Location:</span> " . $response["tracking_status"]["location"]["city"] . " " . $response["tracking_status"]["location"]["state"] . " " . $response["tracking_status"]["location"]["country"] . "</p>";
+        */
+        $code .= "<table>";
+        $code .= "<thead><tr><th>Tracking Status</th><th>Tracking Date</th><th>Tracking Location</th></tr></thead>";
+        $code .= "<tbody>";
+        while($row = array_pop($history)){
+            $code .= "<tr>";
+            if($row["status_details"] != null){
+                $code .= "<td>" . $row["status_details"] . "</td>";
+            } else {
+                $code .= "<td> </td>";
+            }
+            if($row["status_date"] != null){
+                $code .= "<td>" . explode("T",$row["status_date"])[0] . "</td>";
+            } else {
+                $code .= "<td> </td>";
+            }
+            if($row["location"] != null){
+                $code .= "<td>" . $row["location"]["city"] . " " . $row["location"]["state"] . " " . $row["location"]["country"] . "</td>";
+            } else {
+                $code .= "<td> </td>";
+            }
+            $code .= "</tr>";
+        }
+        $code .= "</tbody>";
+        $code .= "</table>";
         $code .= "</div>";
         $code .= "</li>";
     }
