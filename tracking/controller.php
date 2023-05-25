@@ -85,4 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET["carriers"])) {
         echo json_encode(array('code' => array('behave' => 'replace', 'code' => carriers($_GET["carriers"]))));
     }
+    if(isset($_GET["idDelete"])){
+        $id = $_GET["idDelete"];
+        $res = safeQueryId("DELETE FROM tracking WHERE id = ?", array($id));
+        if(query("SELECT * FROM tracking_user WHERE idTracking = " . $id)->num_rows == 0){
+            $res = safeQueryId("DELETE FROM tracking WHERE id = ?", array($id));
+        }
+        echo json_encode(array('redirect' => array('page' => 'trackings.php')));
+        exit();
+    }
 }
