@@ -38,6 +38,7 @@
     }
   </style>
 
+
 </head>
 
 
@@ -65,27 +66,18 @@
             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
               <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
 
-
-                <li>
-                  <div class="dropdown">
-                    <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
-                        style="color:aliceblue">Pacchi</a>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content" id="myDropdown">
-                      <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
-                      <a href="tracking/addTracking.php">Nuovo tracciamento</a>
-                    </div>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
+                      style="color:aliceblue">Pacchi</a>
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content" id="myDropdown">
+                    <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
+                    <a href="tracking/addTracking.php">Nuovo tracciamento</a>
                   </div>
-                </li>
-
-                <?php
-
-                echo "<li><a href='accesso/logout.php'>Logout</a></li>";
-
-              }
-              ?>
-
+                </div>
+              </li>
             </ul>
           </nav>
         </div>
@@ -117,6 +109,7 @@
   </div>
   </a>
 
+  <!--
   <div class="container">
     <div class="row mb-5">
 
@@ -143,6 +136,7 @@
     </div>
   </div>
 
+
   <div class="site-section border-bottom" id="section-our-team">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -168,7 +162,7 @@
       </div>
     </div>
   </div>
-
+  -->
   <script src="./index_files/jquery-3.3.1.min.js.trasferimento"></script>
   <script src="./index_files/jquery-migrate-3.0.1.min.js.trasferimento"></script>
   <script src="./index_files/jquery-ui.js.trasferimento"></script>
