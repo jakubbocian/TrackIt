@@ -139,6 +139,8 @@
             ordini</p>
           <p class="mb-5">La nostrà attività si basa sulla fiducia reciproca con la clientela e si basa su 3 principi
           </p>
+          <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="redirect.php"
+              class="btn btn-primary py-3 px-5 text-white">Inizia!</a></p>
 
           <ul class="ul-check list-unstyled success">
             <li>Affidabilità</li>
