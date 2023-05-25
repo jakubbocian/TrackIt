@@ -48,6 +48,7 @@ function trackings()
         
         $code .= "<li>";
         $code .= "<h3>" . $row["name"] . "</h3>";
+        $code .= "<button class='delete' onclick=\"GET('controller.php?idDelete=" . $row["id"] . "','dummy', 'dummy')\">Delete</button>";
         $code .= "<div class='shipment-details'>";
         $code .= "<h2>Shipment Details</h2>";
         $code .= "<p><span>Carrier:</span> " . $row["carrier"] . "</p>";
