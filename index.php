@@ -53,7 +53,7 @@
         <div class="row align-items-center">
 
           <div class="col-11 col-xl-2 site-logo">
-            <a href="index.html" class="text-white h2 mb-0">
+            <a href="index.php" class="text-white h2 mb-0">
               TrackIT
               <img src="images/pack.png" alt="Logo TrackIT" width="50" height="50" style="margin-left: 25px;">
             </a>
@@ -115,7 +115,7 @@
               data-aos="fade-up">Seguiamo i tuoi pacchi</h1>
             <p class="mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Come postman ma nella vita vera
             </p>
-            <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="accesso/registrazione.php"
+            <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="redirect.php"
                 class="btn btn-primary py-3 px-5 text-white">Inizia!</a></p>
 
           </div>
