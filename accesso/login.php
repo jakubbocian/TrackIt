@@ -23,7 +23,7 @@
 
   <main class="form-signin w-100 m-auto">
     <form name="login">
-      <a href="../index.html"><img class="mb-4" src="../images/pack.png" alt="" width="72" height="75"></a>
+      <a href="../index.php"><img class="mb-4" src="../images/pack.png" alt="" width="72" height="75"></a>
       <h1 class="h3 mb-3 fw-normal">Effettua il login</h1>
 
       <div class="form-floating">
