@@ -39,13 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // LOGIN
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    
     $email = $_GET["email"];
     $password = hash("sha256", $_GET["password"]);
 
-    $res = safeQuery("SELECT * FROM user WHERE email = ?", array($email));
+    $res = safeQuery("SELECT * FROM user WHERE email = ? AND password = ?", array($email, $password));
+
     if ($res->num_rows == 0) {
         echo json_encode(array('code' => array('behave' => 'replace', 'code' => 'Email o password errati')));
     } else {
+
         $row = $res->fetch_assoc();
         $username = $row['username'];
 

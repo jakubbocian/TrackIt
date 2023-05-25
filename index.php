@@ -1,204 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>TrackIT</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TrackIT</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="./index_files/css">
-  <link rel="stylesheet" href="./index_files/style.css">
+    <link rel="stylesheet" href="./index_files/css">
+    <link rel="stylesheet" href="./index_files/style.css">
 
-  <link rel="stylesheet" href="./index_files/bootstrap.min.css">
-  <link rel="stylesheet" href="./index_files/magnific-popup.css">
-  <link rel="stylesheet" href="./index_files/jquery-ui.css">
-  <link rel="stylesheet" href="./index_files/owl.carousel.min.css">
-  <link rel="stylesheet" href="./index_files/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./index_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./index_files/magnific-popup.css">
+    <link rel="stylesheet" href="./index_files/jquery-ui.css">
+    <link rel="stylesheet" href="./index_files/owl.carousel.min.css">
+    <link rel="stylesheet" href="./index_files/owl.theme.default.min.css">
 
-  <link rel="stylesheet" href="./index_files/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="./index_files/bootstrap-datepicker.css">
 
-  <link rel="stylesheet" href="./index_files/flaticon.css">
+    <link rel="stylesheet" href="./index_files/flaticon.css">
 
-  <link rel="stylesheet" href="./index_files/aos.css">
-  <link rel="stylesheet" href="./index_files/index_dropdown.css">
+    <link rel="stylesheet" href="./index_files/aos.css">
+    <link rel="stylesheet" href="./index_files/index_dropdown.css">
 
-  <link rel="stylesheet" href="./index_files/style(1).css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
-
-
-  <style type="text/css" id="operaUserStyle"></style>
-
-  <style>
-    /* Add custom CSS styles here */
-    .site-navbar.py-3.scrolled .site-menu a {
-      color: #000000 !important;
-      /* Set the text color to black when scrolled */
-    }
-  </style>
-
-</head>
+    <link rel="stylesheet" href="./index_files/style(1).css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
 
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" data-aos-easing="slide"
-  data-aos-duration="800" data-aos-delay="0">
+    <style type="text/css" id="operaUserStyle"></style>
 
-  <!-- <div class="site-wrap"> -->
+    <style>
+      /* Add custom CSS styles here */
+      .site-navbar.py-3.scrolled .site-menu a {
+        color: #000000 !important;
+        /* Set the text color to black when scrolled */
+      }
+    </style>
 
-
-  <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
-
-    <div class="container">
-      <div class="row align-items-center">
-
-        <div class="col-11 col-xl-2 site-logo">
-          <a href="index.html" class="text-white h2 mb-0">
-            TrackIT
-            <img src="images/pack.png" alt="Logo TrackIT" width="50" height="50" style="margin-left: 25px;">
-          </a>
-        </div>
-
-        <div class="col-12 col-md-10 d-none d-xl-block">
-          <nav class="site-navigation position-relative text-right" role="navigation">
-
-            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-              <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
+  </head>
 
 
-                <li>
-                  <div class="dropdown">
-                    <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
-                        style="color:aliceblue">Pacchi</a>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content" id="myDropdown">
-                      <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
-                      <a href="tracking/addTracking.php">Nuovo tracciamento</a>
-                    </div>
-                  </div>
-                </li>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" data-aos-easing="slide"
+    data-aos-duration="800" data-aos-delay="0">
 
+    <!-- <div class="site-wrap"> -->
+
+
+    <header class="site-navbar py-3 js-site-navbar site-navbar-target" role="banner" id="site-navbar">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-11 col-xl-2 site-logo">
+            <a href="index.html" class="text-white h2 mb-0">
+              TrackIT
+              <img src="images/pack.png" alt="Logo TrackIT" width="50" height="50" style="margin-left: 25px;">
+            </a>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
                 <?php
 
-                echo "<li><a href='accesso/logout.php'>Logout</a></li>";
+                session_start();
 
-              }
-              ?>
+                if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
 
-            </ul>
-          </nav>
+                  ?>
+
+                  <li>
+                    <div class="dropdown">
+                      <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
+                          style="color:aliceblue">Pacchi</a>
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content" id="myDropdown">
+                        <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
+                        <a href="tracking/addTracking.php">Nuovo tracciamento</a>
+                      </div>
+                    </div>
+                  </li>
+
+                  <?php
+
+                  echo "<li><a href='accesso/logout.php'>Logout</a></li>";
+
+                }
+                ?>
+
+              </ul>
+            </nav>
+          </div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a
+              href="file:///C:/Users/mpolo/Desktop/TrackIT/index.html#" class="site-menu-toggle js-menu-toggle"><span
+                class="icon-menu h3"></span></a></div>
+
         </div>
-        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a
-            href="file:///C:/Users/mpolo/Desktop/TrackIT/index.html#" class="site-menu-toggle js-menu-toggle"><span
-              class="icon-menu h3"></span></a></div>
+      </div>
+    </header>
+    <div class="site-blocks-cover overlay aos-init aos-animate"
+      style="background-image: url(&quot;images/hero_bg_2.jpg&quot;); background-position: 50% -25px;" data-aos="fade"
+      data-stellar-background-ratio="0.5" id="section-home">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
 
+          <div class="col-md-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+
+            <h1 class="text-white font-weight-light text-uppercase font-weight-bold aos-init aos-animate"
+              data-aos="fade-up">Seguiamo i tuoi pacchi</h1>
+            <p class="mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Come postman ma nella vita vera
+            </p>
+            <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="accesso/registrazione.php"
+                class="btn btn-primary py-3 px-5 text-white">Inizia!</a></p>
+
+          </div>
+        </div>
       </div>
     </div>
-  </header>
-  <div class="site-blocks-cover overlay aos-init aos-animate"
-    style="background-image: url(&quot;images/hero_bg_2.jpg&quot;); background-position: 50% -25px;" data-aos="fade"
-    data-stellar-background-ratio="0.5" id="section-home">
+    </a>
+
     <div class="container">
-      <div class="row align-items-center justify-content-center text-center">
+      <div class="row mb-5">
 
-        <div class="col-md-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+        <div class="col-md-5 ml-auto mb-5 order-md-2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <img src="./index_files/img_3.jpg" alt="Image" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 order-md-1 aos-init aos-animate" data-aos="fade-up">
+          <div class="text-left pb-1 border-primary mb-4">
 
-          <h1 class="text-white font-weight-light text-uppercase font-weight-bold aos-init aos-animate"
-            data-aos="fade-up">Seguiamo i tuoi pacchi</h1>
-          <p class="mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Come postman ma nella vita vera
+            <h2 class="text-primary">Chi siamo</h2>
+          </div>
+          <p>Dal 2005 ci occupiamo di soddisfare la necessità dei nostri clienti di ricevere informazioni sui propri
+            ordini</p>
+          <p class="mb-5">La nostrà attività si basa sulla fiducia reciproca con la clientela e si basa su 3 principi
           </p>
-          <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="accesso/registrazione.php"
+          <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate"><a href="redirect.php"
               class="btn btn-primary py-3 px-5 text-white">Inizia!</a></p>
 
+          <ul class="ul-check list-unstyled success">
+            <li>Affidabilità</li>
+            <li>Disponibilità</li>
+            <li>Efficienza</li>
+          </ul>
         </div>
+
       </div>
     </div>
-  </div>
-  </a>
 
-  <div class="container">
-    <div class="row mb-5">
-
-      <div class="col-md-5 ml-auto mb-5 order-md-2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-        <img src="./index_files/img_3.jpg" alt="Image" class="img-fluid rounded">
-      </div>
-      <div class="col-md-6 order-md-1 aos-init aos-animate" data-aos="fade-up">
-        <div class="text-left pb-1 border-primary mb-4">
-
-          <h2 class="text-primary">Chi siamo</h2>
-        </div>
-        <p>Dal 2005 ci occupiamo di soddisfare la necessità dei nostri clienti di ricevere informazioni sui propri
-          ordini</p>
-        <p class="mb-5">La nostrà attività si basa sulla fiducia reciproca con la clientela e si basa su 3 principi
-        </p>
-
-        <ul class="ul-check list-unstyled success">
-          <li>Affidabilità</li>
-          <li>Disponibilità</li>
-          <li>Efficienza</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="site-section border-bottom" id="section-our-team">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-7 text-center border-primary">
-          <h2 class="font-weight-light text-primary aos-init aos-animate" data-aos="fade">Our Team</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="100">
-          <div class="person">
-            <img src="./index_files/davide.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
-            <h3>Cartolano Davide</h3>
-
+    <div class="site-section border-bottom" id="section-our-team">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light text-primary aos-init aos-animate" data-aos="fade">Our Team</h2>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="200">
-          <div class="person">
-            <img src="./index_files/jakub.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
-            <h3>Jakub Bocian</h3>
-          </div>
-        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="100">
+            <div class="person">
+              <img src="./index_files/davide.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
+              <h3>Cartolano Davide</h3>
 
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade" data-aos-delay="200">
+            <div class="person">
+              <img src="./index_files/jakub.jpg" alt="Image" class="img-fluid rounded mb-5 w-75 rounded-circle">
+              <h3>Jakub Bocian</h3>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="./index_files/jquery-3.3.1.min.js.trasferimento"></script>
-  <script src="./index_files/jquery-migrate-3.0.1.min.js.trasferimento"></script>
-  <script src="./index_files/jquery-ui.js.trasferimento"></script>
-  <script src="./index_files/jquery.easing.1.3.js.trasferimento"></script>
-  <script src="./index_files/popper.min.js.trasferimento"></script>
-  <script src="./index_files/bootstrap.min.js.trasferimento"></script>
-  <script src="./index_files/owl.carousel.min.js.trasferimento"></script>
-  <script src="./index_files/jquery.stellar.min.js.trasferimento"></script>
-  <script src="./index_files/jquery.countdown.min.js.trasferimento"></script>
-  <script src="./index_files/jquery.magnific-popup.min.js.trasferimento"></script>
-  <script src="./index_files/bootstrap-datepicker.min.js.trasferimento"></script>
-  <script src="./index_files/aos.js.trasferimento"></script>
+    <script src="./index_files/jquery-3.3.1.min.js.trasferimento"></script>
+    <script src="./index_files/jquery-migrate-3.0.1.min.js.trasferimento"></script>
+    <script src="./index_files/jquery-ui.js.trasferimento"></script>
+    <script src="./index_files/jquery.easing.1.3.js.trasferimento"></script>
+    <script src="./index_files/popper.min.js.trasferimento"></script>
+    <script src="./index_files/bootstrap.min.js.trasferimento"></script>
+    <script src="./index_files/owl.carousel.min.js.trasferimento"></script>
+    <script src="./index_files/jquery.stellar.min.js.trasferimento"></script>
+    <script src="./index_files/jquery.countdown.min.js.trasferimento"></script>
+    <script src="./index_files/jquery.magnific-popup.min.js.trasferimento"></script>
+    <script src="./index_files/bootstrap-datepicker.min.js.trasferimento"></script>
+    <script src="./index_files/aos.js.trasferimento"></script>
 
-  <script src="./index_files/main.js.trasferimento"></script>
+    <script src="./index_files/main.js.trasferimento"></script>
 
-  <script>
+    <script>
 
-    function myFunction() {
-      var dropdownContent = document.getElementById("myDropdown");
-      if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-      } else {
-        dropdownContent.style.display = "block";
+      function myFunction() {
+        var dropdownContent = document.getElementById("myDropdown");
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
       }
-    }
 
 
-  </script>
+    </script>
 
 
-</body>
+  </body>
 
-</html>
+  </html>
