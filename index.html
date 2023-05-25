@@ -22,10 +22,22 @@
   <link rel="stylesheet" href="./index_files/flaticon.css">
 
   <link rel="stylesheet" href="./index_files/aos.css">
+  <link rel="stylesheet" href="./index_files/index_dropdown.css">
 
   <link rel="stylesheet" href="./index_files/style(1).css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
 
   <style type="text/css" id="operaUserStyle"></style>
+
+  <style>
+    /* Add custom CSS styles here */
+    .site-navbar.py-3.scrolled .site-menu a {
+      color: #000000 !important;
+      /* Set the text color to black when scrolled */
+    }
+  </style>
 </head>
 
 
@@ -41,7 +53,7 @@
       <div class="row align-items-center">
 
         <div class="col-11 col-xl-2 site-logo">
-          <a href="file:///C:/Users/mpolo/Desktop/TrackIT/index.html" class="text-white h2 mb-0">
+          <a href="index.html" class="text-white h2 mb-0">
             TrackIT
             <img src="images/pack.png" alt="Logo TrackIT" width="50" height="50" style="margin-left: 25px;">
           </a>
@@ -51,13 +63,23 @@
           <nav class="site-navigation position-relative text-right" role="navigation">
 
             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-              <li><a href="#inizio" class="nav-link active">Home</a></li>
-              <li><a href = "tuoipacchi.php">Tuoi pacchi</a></li>
+              <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
+
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" onclick="myFunction()"><a class="nav-link active"
+                      style="color:aliceblue">Pacchi</a>
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content" id="myDropdown">
+                    <a href="tracking/trackings.php">Tuoi tracciamenti</a><br>
+                    <a href="tracking/addTracking.php">Nuovo tracciamento</a>
+                  </div>
+                </div>
+              </li>
             </ul>
           </nav>
         </div>
-
-
         <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a
             href="file:///C:/Users/mpolo/Desktop/TrackIT/index.html#" class="site-menu-toggle js-menu-toggle"><span
               class="icon-menu h3"></span></a></div>
@@ -85,7 +107,7 @@
     </div>
   </div>
   </a>
-
+  <!--
   <div class="container">
     <div class="row mb-5">
 
@@ -111,13 +133,6 @@
 
     </div>
   </div>
-
-
-
-
-
-
-
   <div class="site-section border-bottom" id="section-our-team">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -143,7 +158,7 @@
       </div>
     </div>
   </div>
-
+  -->
   <script src="./index_files/jquery-3.3.1.min.js.trasferimento"></script>
   <script src="./index_files/jquery-migrate-3.0.1.min.js.trasferimento"></script>
   <script src="./index_files/jquery-ui.js.trasferimento"></script>
@@ -159,6 +174,19 @@
 
   <script src="./index_files/main.js.trasferimento"></script>
 
+  <script>
+
+    function myFunction() {
+      var dropdownContent = document.getElementById("myDropdown");
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    }
+
+
+  </script>
 
 </body>
 

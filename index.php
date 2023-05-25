@@ -64,7 +64,6 @@
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li><a href="#inizio" class="nav-link active" style="color: aliceblue;">Home</a></li>
-
                 <?php
 
                 session_start();
